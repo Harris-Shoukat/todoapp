@@ -22,8 +22,8 @@ function Layout() {
   
 
   return (
-    <div className="w-screen h-screen flex justify-center items-center">
-      <div className="w-3/4 sm:w-2/3 md:w-1/3 h-auto bg-slate-200 flex justify-center items-center flex-col rounded-lg">
+    <div className="w-screen h-screen bg-custom-bg flex justify-center items-center">
+      <div className="w-3/4 sm:w-2/3 md:w-1/3 h-auto bg-slate-300 flex justify-center items-center flex-col rounded-xl">
         {/* purple section */}
         <div className="w-full h-32 bg-purple-900 rounded-t-xl">
           <h1 className="text-3xl text-white pt-1">TODO List</h1>

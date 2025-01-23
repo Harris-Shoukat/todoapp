@@ -35,9 +35,9 @@ const initialState = {
         },
 
         editTask:(state,action) => {
-            const { id, title} = action.payload;
+            // const { id, title} = action.payload; 
             state.tasks = state.tasks.map( (task) => (
-                task.id === action.payload.id ? action.payload : ''
+                task.id === action.payload.id ? action.payload : task
             ))
         }
     },

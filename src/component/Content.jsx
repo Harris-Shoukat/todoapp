@@ -3,6 +3,7 @@ import { MdDelete } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { addTask, deleteTask } from "../feature/taskSlice";
 import { v4 } from "uuid";
+import Edit from "./Edit";
 
 function Content() {
   const [title,setTitle] = useState(''); 
@@ -44,19 +45,20 @@ function Content() {
       </form>
 
       {/* Todo list section */}
-      <div className="mt-24 w-[90%] md:w-5/6 bg-slate-100 rounded-lg py-10 mb-5">
+      {/* class="overflow-y-auto h-72" */}
+      <div className="overflow-y-auto h-96 mt-24 w-[90%] md:w-10/12 bg-slate-100 rounded-lg py-10 mb-5">
         <h1 className="flex justify-start text-xl font-medium pl-3 pb-1">
           Todo List
         </h1>
         <table className="min-w-full table-auto border-collapse">
-          <thead>
+          <thead className="sticky -top-10">
             <tr className="bg-gray-300">
               <th className="px-4 py-2 border">List</th>
               <th className="px-4 py-2 border">Status</th>
               <th className="px-4 py-2 border">Action</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody >
             {tasks.map((ele, index) => (
               <tr key={index}>
                 <td className="px-4 py-2 border-b-2 border-blue-200">{ele.title}</td>
@@ -65,6 +67,7 @@ function Content() {
                   <button onClick={() => {handleDelete(ele.id)}} className="m-1 bg-red-500 text-lg text-white p-2 rounded">
                     <MdDelete />
                   </button>
+                  <Edit task={ele}/>
                 </td>
               </tr>
             ))}
