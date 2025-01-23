@@ -4,7 +4,7 @@ const initialState = {
     tasks: [],
     loading: false,
     error: null,
-    status: "all"
+    status: "Todo"
 }
 
 
@@ -16,7 +16,6 @@ const initialState = {
         {
             id: task.id,
             title: task.title,
-            description: '',
             status: task.completed ? "Completed" : "Todo"
         }
     ))
@@ -29,6 +28,7 @@ const initialState = {
     reducers: {
         addTask:(state,action) =>{
             state.tasks.push(action.payload)
+            state.status = action.payload
         },
         deleteTask: (state,action) =>{
             state.tasks = state.tasks.filter(task => task.id !== action.payload)
